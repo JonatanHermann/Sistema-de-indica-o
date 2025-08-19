@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    
+    <Suspense>
       <div className="min-h-dvh flex justify-center gap-16 flex-col">
         <div className="flex flex-col gap-8 items-center md:items-start">
           <Image src={logo} alt="devstage" width={108.5} height={30} />
@@ -38,11 +38,10 @@ export default function Home() {
               Dias 15 a 17 de março | Das 18h às 21h | Online & Gratuito
             </p>
           </div>
-        
-          <SubscriptionForm/>
 
+          <SubscriptionForm />
         </div>
       </div>
-    
+    </Suspense>
   );
 }
