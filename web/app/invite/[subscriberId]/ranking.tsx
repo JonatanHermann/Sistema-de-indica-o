@@ -5,7 +5,8 @@ import Image from "next/image";
 import { getRanking } from "@/http/api";
 
 export async function Ranking() {
-  const { ranking } = await getRanking();
+  const data = await getRanking();
+  const ranking = data?.ranking || [];
   return (
     <div className="w-full max-w-[440px] space-y-5">
       <h2 className="text-gray-200 text-xl font-heading font-semibold leading-none">
@@ -17,7 +18,10 @@ export async function Ranking() {
           const rankingPosition = index + 1;
 
           return (
-            <div key={item.id} className="relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3">
+            <div
+              key={item.id}
+              className="relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3"
+            >
               <span className="text-sm text-gray-300 leading-none">
                 <span className="font-semibold">{rankingPosition}º</span> |{" "}
                 {item.name}
@@ -27,9 +31,15 @@ export async function Ranking() {
                 {item.score}
               </span>
 
-              {rankingPosition === 1 && <Image src={gold} alt="" className="absolute top-0 right-8" />}
-              {rankingPosition === 2 && <Image src={silver} alt="" className="absolute top-0 right-8" />}
-              {rankingPosition === 3 && <Image src={cooper} alt="" className="absolute top-0 right-8" />}
+              {rankingPosition === 1 && (
+                <Image src={gold} alt="" className="absolute top-0 right-8" />
+              )}
+              {rankingPosition === 2 && (
+                <Image src={silver} alt="" className="absolute top-0 right-8" />
+              )}
+              {rankingPosition === 3 && (
+                <Image src={cooper} alt="" className="absolute top-0 right-8" />
+              )}
             </div>
           );
         })}
