@@ -61,21 +61,23 @@ export const getSubscribeToEventUrl = () => {
 }
 
 export const subscribeToEvent = async (subscribeToEventBody: SubscribeToEventBody, options?: RequestInit): Promise<SubscribeToEvent201> => {
-  
   const res = await fetch(getSubscribeToEventUrl(),
-  {      
+  {     
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
     body: JSON.stringify(
       subscribeToEventBody,)
+  })
+
+  // CÓDIGO CORRIGIDO AQUI
+  if (!res.ok) {
+    throw new Error(`Failed to subscribe. Status: ${res.status}`);
   }
-)
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
-  const data: SubscribeToEvent201 = body ? JSON.parse(body) : {}
-
-  return data
+  
+  const data: SubscribeToEvent201 = await res.json();
+  
+  return data;
 }
 
 
@@ -94,7 +96,7 @@ export const getAccessInviteLinkUrl = (subscriberId: string,) => {
 export const accessInviteLink = async (subscriberId: string, options?: RequestInit): Promise<unknown> => {
   
   const res = await fetch(getAccessInviteLinkUrl(subscriberId),
-  {      
+  {     
     ...options,
     method: 'GET'
     
@@ -124,7 +126,7 @@ export const getGetRankingUrl = () => {
 export const getRanking = async ( options?: RequestInit): Promise<GetRanking200> => {
   
   const res = await fetch(getGetRankingUrl(),
-  {      
+  {     
     ...options,
     method: 'GET'
     
@@ -154,7 +156,7 @@ export const getGetSubscriberInviteCountUrl = (subscriberId: string,) => {
 export const getSubscriberInviteCount = async (subscriberId: string, options?: RequestInit): Promise<GetSubscriberInviteCount200> => {
   
   const res = await fetch(getGetSubscriberInviteCountUrl(subscriberId),
-  {      
+  {     
     ...options,
     method: 'GET'
     
@@ -184,7 +186,7 @@ export const getGetSubscriberInviteClicksUrl = (subscriberId: string,) => {
 export const getSubscriberInviteClicks = async (subscriberId: string, options?: RequestInit): Promise<GetSubscriberInviteClicks200> => {
   
   const res = await fetch(getGetSubscriberInviteClicksUrl(subscriberId),
-  {      
+  {     
     ...options,
     method: 'GET'
     
@@ -214,7 +216,7 @@ export const getGetSubscriberRankingPositionUrl = (subscriberId: string,) => {
 export const getSubscriberRankingPosition = async (subscriberId: string, options?: RequestInit): Promise<GetSubscriberRankingPosition200> => {
   
   const res = await fetch(getGetSubscriberRankingPositionUrl(subscriberId),
-  {      
+  {     
     ...options,
     method: 'GET'
     
