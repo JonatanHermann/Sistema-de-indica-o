@@ -1,6 +1,6 @@
-import gold from "../../../assets/medal-gold.svg";
-import cooper from "../../../assets/medal-cooper.svg";
-import silver from "../../../assets/medal-silver.svg";
+import gold from "../../../src/assets/medal-gold.svg";
+import cooper from "../../../src/assets/medal-cooper.svg";
+import silver from "../../../src/assets/medal-silver.svg";
 import Image from "next/image";
 import { getRanking } from "@/http/api";
 

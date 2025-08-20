@@ -1,4 +1,4 @@
-import logo from "../../../assets/logo.svg";
+import logo from "../../../src/assets/logo.svg";
 import { Ranking } from "./ranking";
 import Image from "next/image";
 import { Stats } from "./stats";
