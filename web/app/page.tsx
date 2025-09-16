@@ -12,7 +12,7 @@ export default function Home() {
           <Image src={logo} alt="devstage" width={108.5} height={30} />
 
           <h1 className="text-4xl text-center leading-none font-heading font-medium flex flex-col md:text-7xl md:text-left">
-            <span className="text-blue">CodeCraft</span> Sumit 2025
+            <span className="text-blue">ReferralRank</span> Sua rede, seu impacto
           </h1>
         </div>
 
@@ -28,14 +28,12 @@ export default function Home() {
               </span>
             </div>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-              Um evento feito por e para pessoas desenvolvedoras apaixonadas por
-              criar soluções inovadoras e compartilhar conhecimento. Vamos
-              mergulhar nas tendências mais recentes em desenvolvimento de
-              software, arquitetura de sistemas e tecnologias emergentes, com
-              palestras, workshops e hackathons.
+              Cadastre-se, receba seu link exclusivo e acompanhe quantas pessoas
+              você indicou. Compartilhe, suba no ranking e veja sua influência
+              crescer
               <br />
               <br />
-              Dias 15 a 17 de março | Das 18h às 21h | Online & Gratuito
+              Compartilhe seu link e acompanhe seus resultados em tempo real.
             </p>
           </div>
 
